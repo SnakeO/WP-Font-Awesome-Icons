@@ -32,7 +32,7 @@ License:
 
 class WPFontAwesomeIcons {
     private static $instance;
-    const VERSION = '4.2.0';
+    const VERSION = '4.4.0';
 	
 	private static function has_instance() {
         return isset( self::$instance ) && self::$instance != null;
@@ -56,7 +56,7 @@ class WPFontAwesomeIcons {
 
     public function init_WPFAI() {
 		add_action( 'admin_enqueue_scripts', array( &$this, 'register_plugin_styles' ) );
-		add_action( 'admin_head', array( &$this, 'set_admin_icons' ) );
+		add_action( 'admin_head', array( &$this, 'set_admin_icons' ), 1000 );
 		require_once( dirname( __FILE__ ) . '/icon-settings.php' );
 		
 		$options = get_option( 'general_icon_settings' );
